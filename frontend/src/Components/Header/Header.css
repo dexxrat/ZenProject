@@ -1,0 +1,29 @@
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.zen-logo {
+  height: 26px;
+  width: auto;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header {
+  justify-content: space-between;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.profile-logo {
+  margin-left: auto;
+}

@@ -1,0 +1,22 @@
+.in-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.h2-cost {
+  margin-left: auto;
+  padding-right: 10px;
+  color: #686868;
+  font-size: 20px;
+  font-family: "Inter";
+  letter-spacing: -0, 3px;
+  font-weight: 100;
+}
+
+.title-h2-bioJeans {
+  font-weight: 250;
+}
+
+.h3-title{
+  
+}

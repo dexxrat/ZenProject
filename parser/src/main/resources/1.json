@@ -1,0 +1,159 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 0,
+      "item": {
+        "@type": "Product",
+        "name": "LIMITED EDITION CROPPED FIT LEATHER JACKET",
+        "image": "https://static.zara.net/assets/public/76c5/9ccb/c2a24f3b8508/4b9275b00de6/05388412700-a1/05388412700-a1.jpg?ts=1770823325300&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 559,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/cropped-fit-leather-jacket-limited-edition-p05388412.html"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Product",
+        "name": "RELAXED FIT LEATHER JACKET",
+        "image": "https://static.zara.net/assets/public/1056/079c/859f4b07a9fa/80b4669f5150/05388330800-a1/05388330800-a1.jpg?ts=1768904816840&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 559,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/relaxed-fit-leather-jacket-p05388330.html"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Product",
+        "name": "VINTAGE EFFECT LEATHER JACKET",
+        "image": "https://static.zara.net/assets/public/5b08/05b5/711740fa94b9/4efff355c8ea/04416302716-a1/04416302716-a1.jpg?ts=1771590086079&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 759,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/vintage-effect-leather-jacket-p04416302.html"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Product",
+        "name": "WASHED LEATHER JACKET",
+        "image": "https://static.zara.net/assets/public/7b99/7af9/fc474f7086f6/897ebdee1b88/05479478686-000-a1/05479478686-000-a1.jpg?ts=1768991593480&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 659,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/washed-leather-jacket-p05479478.html"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "Product",
+        "name": "LEATHER SUEDE JACKET",
+        "image": "https://static.zara.net/assets/public/36b8/990f/eb0346dfb637/e9b293ec37c0/08281555807-a1/08281555807-a1.jpg?ts=1764930482425&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 659,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/leather-suede-jacket-p08281555.html"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Product",
+        "name": "LEATHER RELAXED FIT JACKET",
+        "image": "https://static.zara.net/assets/public/b8e3/d982/ddd743bd8c38/0de5a9f53d2b/05388408407-a1/05388408407-a1.jpg?ts=1771489096984&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 559,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/relaxed-fit-leather-jacket-p05388408.html"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Product",
+        "name": "CROPPED FIT SPLIT SUEDE JACKET",
+        "image": "https://static.zara.net/assets/public/a0a9/da03/c93f4c81acf1/eb4ec811b6d0/08281205800-a1/08281205800-a1.jpg?ts=1772120509043&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 559,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/cropped-fit-split-suede-jacket-p08281205.html"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Product",
+        "name": "RELAXED FIT LEATHER JACKET ORIGINS",
+        "image": "https://static.zara.net/assets/public/1187/230a/5f27436ea875/e83bcaddee9d/04416226800-a1/04416226800-a1.jpg?ts=1768389751475&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 1049,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/relaxed-fit-nappa-leather-jacket-origins-p04416226.html"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Product",
+        "name": "SUEDE LEATHER OVERSHIRT AARON LEVINE X ZARA",
+        "image": "https://static.zara.net/assets/public/19da/3bd0/abb24f7f94e4/a165d8c109c4/05127200716-a1/05127200716-a1.jpg?ts=1764156923791&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 759,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/suede-leather-overshirt-aaron-levine-x-zara-p05127200.html"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Product",
+        "name": "RELAXED FIT LEATHER SPLIT SUEDE JACKET LIMITED EDITION",
+        "image": "https://static.zara.net/assets/public/a781/c97c/527240e5b2c7/63b82593bb40/05388600802-a1/05388600802-a1.jpg?ts=1770118530450&w=352",
+        "offers": {
+          "@type": "Offer",
+          "price": 759,
+          "priceCurrency": "PLN",
+          "url": "https://www.zara.com/pl/en/relaxed-fit-leather-split-suede-jacket-limited-edition-p05388600.html"
+        }
+      }
+    }
+  ],
+  "itemListOrder": "Relevance",
+  "numberOfItems": 10,
+  "url": "https://www.zara.com/pl/en/man-outerwear-leather-l4550.html"
+}

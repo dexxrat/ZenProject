@@ -1,0 +1,10 @@
+.blue-button {
+  background-color: #507dc3;
+
+  font-family: "Inter";
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  height: 38px;
+  width: 207px;
+}

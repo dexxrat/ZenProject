@@ -1,0 +1,31 @@
+.bio-chose h2 {
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  color: #222222;
+}
+
+.bio-chose h3 {
+  font-weight: 200;
+  font-size: 12px;
+  font-family: "Inter";
+  color: #838383;
+  letter-spacing: -0.5px;
+  padding-bottom: 10px;
+}
+
+.cards-container-grid {
+  display: grid;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .cards-container-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .cards-container-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

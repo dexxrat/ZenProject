@@ -1,0 +1,15 @@
+.background-frame {
+  position: absolute;
+  border-radius: 10px;
+  background-color: #d4d4d4;
+  top: 70px;
+  left: 17px;
+  right: 17px;
+  bottom: 17px;
+  z-index: -1;
+}
+
+#root,
+body {
+  position: relative;
+}
