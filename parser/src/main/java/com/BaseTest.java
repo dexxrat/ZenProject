@@ -16,11 +16,16 @@ public class BaseTest {
 
     private String siteUrl = "https://www.zara.com/pl/en/";
     private By closeKrestik = By.xpath("//*[@id=\"onetrust-close-btn-container\"]/button");
-    private By agreeWithPolans = By.xpath("//*[@id=\"I2024-HOME\"]/body/div[2]/div[2]/div/div/div[2]/section[1]/button[1]/span");
+    private By agreeWithPolans = By.xpath("//*[@id=\"I2024-HOME\"]/body/div[3]/div[2]/div/div/div[2]/section[1]/button[1]/span");
     private By menuButton = By.xpath("/html/body/div[1]/div/div[1]/div/div/div/div[2]/header/div[1]/button");
     private By buttonMan =  By.xpath("//div[@class='zds-carousel-container']/div[2]/a[2]");
-    private By buttonAll = By.xpath("(//li/a[@data-qa-action='unfold-category' and contains(span, 'T-SHIRTS')])[2]");
-    private By buttonLeater = By.xpath("//*[@id=\"theme-app\"]/div/div/div/div[2]/main/div[1]/nav/ul/li[6]/a");
+
+
+    private By buttonAll = By.xpath("(//li/a[@data-qa-action='unfold-category' and contains(span, 'VIEW ALL')])");
+    private By buttonLeater = By.xpath("//*[@id=\"theme-app\"]/div/div/div/div[2]/main/div[1]/nav/ul/li[1]/a");
+
+    private By allCategories = By.xpath("/html/body/div[1]/div/div[1]/div/div/div/div[1]/div/div/div/div/div[2]/div/nav/div/div[2]/div/div/div[2]/ul[1]/li[5]/div/ul/li/a/span");
+    private By subCategories = By.xpath("//*[@id=\"main\"]/div[1]/nav/ul/li/a");
 
     private By product1IMG = By.xpath(".//div[1]/a/div/div/div/img");
     private By productName = By.xpath(".//div[2]/div/div/div/div[1]/a/h3");
@@ -38,7 +43,62 @@ public class BaseTest {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.get(siteUrl);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+
+    }
+
+    public BaseTest allCategories() throws InterruptedException {
+        List<WebElement> allCategory = driver.findElements(allCategories);
+        Thread.sleep(3000);
+        for (int i = 4; i <allCategory.size()-4; i++) {
+            allCategory = driver.findElements(allCategories);
+
+            String categoryName = allCategory.get(i).getText();
+            currentCategory = categoryName;
+
+            try {
+                allCategory.get(i).click();
+            } catch (Exception e) {
+                ((JavascriptExecutor) driver).executeScript(
+                        "arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});",
+                        allCategory.get(i)
+                );
+                Thread.sleep(1000);
+                try {
+                    allCategory.get(i).click();
+                } catch (Exception e2) {
+
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();",  allCategory.get(i));
+                }
+            }
+            allSubCategories();
+        }
+        currentCategory = "";
+        return this;
+    }
+
+    public BaseTest allSubCategories() throws InterruptedException {
+
+
+        Thread.sleep(3000);
+        List<WebElement> subCategory = driver.findElements(subCategories);
+        Thread.sleep(3000);
+        for (int i = 1; i <subCategory.size(); i++) {
+            subCategory = driver.findElements(subCategories);
+
+            String subName = subCategory.get(i).getText();
+            currentSubcategory = subName.replaceAll("[0-9\\n]", "").trim();
+
+            Thread.sleep(2000);
+            subCategory.get(i).click();
+            Thread.sleep(2000);
+            recieveProducts();
+        }
+        driver.findElement(menuButton).click();
+        Thread.sleep(1000);
+
+        currentSubcategory = "";
+
+        return this;
     }
 
     public BaseTest agreeWithSite(){
@@ -66,84 +126,50 @@ public class BaseTest {
         Thread.sleep(1000);
 
 
-        try {
-            WebElement categoryElement = driver.findElement(buttonAll);
-            currentCategory = categoryElement.getText().trim();
-            System.out.println("Категория: " + currentCategory);
-        } catch (Exception e) {
-            System.out.println("Не удалось получить категорию");
-        }
-
-        driver.findElement(buttonAll).click();
-        Thread.sleep(1000);
-
-
-        try {
-
-            List<WebElement> navLinks = driver.findElements(By.xpath("//*[@id=\"theme-app\"]/div/div/div/div[2]/main/div[1]/nav/ul/li/a"));
-
-            System.out.println(" Найденные подкатегории в навигации:");
-            for (int i = 0; i < navLinks.size(); i++) {
-                WebElement link = navLinks.get(i);
-                String linkText = link.getText().trim();
-                String cleanText = linkText.replaceAll("^[0-9]+", "").trim();
-                System.out.println("  [" + (i+1) + "] " + linkText + " -> очищено: '" + cleanText + "'");
-
-
-            }
-
-
-
-
-            try {
-                WebElement leatherButton = driver.findElement(buttonLeater);
-                String leatherText = leatherButton.getText().trim();
-                currentSubcategory = leatherText.replaceAll("^[0-9]+", "").trim();
-                System.out.println("Подкатегория из кнопки LEATHER: " + currentSubcategory);
-            } catch (Exception e) {
-                System.out.println(" Не удалось получить текст из buttonLeater");
-            }
-
-
-
-
-            if (currentSubcategory.isEmpty() && navLinks.size() >= 2) {
-                String secondText = navLinks.get(1).getText().trim();
-                currentSubcategory = secondText.replaceAll("^[0-9]+", "").trim();
-                System.out.println(" Подкатегория (второй элемент): " + currentSubcategory);
-            }
-
-        } catch (Exception e) {
-            System.out.println(" Ошибка при получении подкатегорий: " + e.getMessage());
-        }
-
-        driver.findElement(buttonLeater).click();
-        Thread.sleep(2000);
+//        try {
+//            WebElement categoryElement = driver.findElement(buttonAll);
+//            currentCategory = categoryElement.getText().trim();
+//            System.out.println("Категория: " + currentCategory);
+//        } catch (Exception e) {
+//            System.out.println("Не удалось получить категорию");
+//        }
 
         return this;
     }
 
     public BaseTest recieveProducts() throws InterruptedException {
-        List<WebElement> productList;
         Actions actions = new Actions(driver);
 
-        int iteration = 0;
-        int expectedTotal = 47;
+        int expectedTotal = 5000;
+        int lastSize = 0;
+        int sameSizeCount = 0;
+        int processedCount = 0;
 
-        while (iteration < 2 && allProducts.size() < expectedTotal) {
-            iteration++;
 
-            if (iteration > 1) {
-                ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
-                Thread.sleep(1500);
+        while (allProducts.size() < expectedTotal && sameSizeCount < 3) {
+
+            ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
+            Thread.sleep(10);
+
+            List<WebElement> productList = driver.findElements(products);
+            int currentSize = productList.size();
+
+            if (currentSize == lastSize) {
+                sameSizeCount++;
+            } else {
+                sameSizeCount = 0;
             }
+            lastSize = currentSize;
 
-            productList = driver.findElements(products);
-            System.out.println("Итерация " + iteration + ": найдено " + productList.size() + " товаров ---");
+            System.out.println("На странице " + currentSize + " товаров, обработано: " + processedCount);
 
-            for (WebElement product : productList) {
+            int newlyAdded = 0;
+
+            for (int i = processedCount; i < productList.size(); i++) {
                 try {
+                    WebElement product = productList.get(i);
                     WebElement linkElement = product.findElement(productLink);
+
 
                     actions.contextClick(linkElement).perform();
                     Thread.sleep(5);
@@ -151,7 +177,7 @@ public class BaseTest {
                     Thread.sleep(5);
 
                     String link = linkElement.getAttribute("href");
-                    if (link == null) continue;
+                    if (link == null || link.isEmpty()) continue;
 
                     String color = null;
                     try {
@@ -166,22 +192,26 @@ public class BaseTest {
                         String name = product.findElement(productName).getText();
                         String cost = product.findElement(productCost).getText();
 
-
                         allProducts.add(new Product(name, link, cost, img, color, currentCategory, currentSubcategory));
-                        System.out.println("  ✓ " + name +
-                                (color != null ? " (" + color + ")" : "") +
-                                (!currentCategory.isEmpty() ? " [" + currentCategory + "]" : "") +
-                                (!currentSubcategory.isEmpty() ? " / " + currentSubcategory : ""));
+                        newlyAdded++;
                     }
                 } catch (Exception e) {
 
                 }
             }
 
-            System.out.println("Товаров на странице: " + productList.size() + ", собрано: " + allProducts.size());
+            processedCount = productList.size();
+
+            System.out.println(" новые " + newlyAdded + ", всего: " + allProducts.size() + "/" + expectedTotal);
+
+
+            if (allProducts.size() >= expectedTotal) {
+                System.out.println("Достигнуто целевое количество товаров!");
+                break;
+            }
         }
 
-        System.out.println(" Итог : " + allProducts.size() + " товаров");
+        System.out.println("собрано " + allProducts.size() + " товаров");
         return this;
     }
 
@@ -193,11 +223,31 @@ public class BaseTest {
 
     public static void main(String[] args) throws InterruptedException {
         BaseTest test = new BaseTest();
-        test.setUp();
-        test.agreeWithSite()
-                .goToManMenu()
-                .recieveProducts()
-                .saveProducts();
-        driver.quit();
+        try {
+            test.setUp();
+            test.agreeWithSite()
+                    .goToManMenu()
+                    .allCategories();
+        } catch (Exception e) {
+            System.out.println(" Произошла ошибка: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+
+            System.out.println("Финальное сохранение...");
+            test.saveProducts();
+            System.out.println(" Всего сохранено товаров: " + test.allProducts.size());
+
+
+            if (driver != null) {
+//                driver.quit();
+                System.out.println("Браузер закрыт");
+            }
+        }
     }
-}
+
+//        test.agreeWithSite()
+//                .goToManMenu()
+//                .recieveProducts()
+//                .saveProducts();
+
+    }
