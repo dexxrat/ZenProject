@@ -1,9 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import BlueButton from "../../Components/BlueButton/BlueButton";
 import StatisticButton from "../../Components/StatisticButton/StatisticButton";
-import categoryImg from "../../assets/category.svg";
+import "./ProductCard.css"; // УБЕДИСЬ ЧТО ЭТОТ ИМПОРТ ЕСТЬ!
 
-function ProductCard() {
+interface CategoryProps {
+  text: string;
+  img: string;
+}
+
+function ProductCard({ text, img }: CategoryProps) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -11,19 +16,16 @@ function ProductCard() {
   };
 
   return (
-    <>
+    <div className="product-card">
       <div className="center-content-wrapper">
-        <img
-          src={categoryImg}
-          alt="category image"
-          className="category-image"
-        />
+        <img src={img} alt={text} className="category-image" />
+        <p>{text}</p>
         <div className="buttons-category">
           <StatisticButton />
           <BlueButton text="START" onClick={handleClick} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

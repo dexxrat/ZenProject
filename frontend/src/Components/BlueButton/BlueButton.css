@@ -1,10 +1,20 @@
 .blue-button {
   background-color: #507dc3;
-
   font-family: "Inter";
   color: #ffffff;
   border-radius: 5px;
   border: none;
-  height: 38px;
-  width: 207px;
+  height: 36px;
+  width: 100%; /* на всю ширину контейнера */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-button:hover {
+  background-color: #3d5f9c;
 }

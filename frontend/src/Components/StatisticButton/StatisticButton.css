@@ -1,7 +1,22 @@
 .statisticButton {
-  padding: 0 5px;
   background: transparent;
-  width: fit-content;
-  height: fit-content;
   border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 36px;
+  height: 36px; /* точно как у синей кнопки */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  flex-shrink: 0; /* не сжимается */
+}
+
+.statisticButton:hover {
+  background-color: rgba(80, 125, 195, 0.1);
+}
+
+.statisticButton img {
+  display: block;
 }
