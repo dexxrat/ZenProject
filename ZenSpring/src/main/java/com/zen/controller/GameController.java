@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(origins = "*") 
 @RestController
 @RequestMapping("/api/game")
 public class GameController {
@@ -38,7 +38,7 @@ public class GameController {
         return products;
     }
 
-    @GetMapping("/game/battle-products")
+    @GetMapping("/battle-products")
     public List<Product> getBattleProducts(
             @RequestParam String category,
             @RequestParam String subcategory
@@ -46,4 +46,11 @@ public class GameController {
         return gameService.getTwoRandomProducts(category, subcategory);
     }
 
+    @GetMapping("/taste-batle")
+    public List<Product> getTesteBatle(
+            @RequestParam String category,
+            @RequestParam String subcategory
+    ){
+        return ;
+    }
 }
